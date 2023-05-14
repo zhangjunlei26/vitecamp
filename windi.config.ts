@@ -3,8 +3,15 @@ import typography from 'windicss/plugin/typography';
 import colors from 'windicss/colors';
 
 export default defineConfig({
-  darkMode: 'class',
+  mode: 'jit',
+  darkMode: 'media', // class,
+  // https://windicss.org/posts/v30.html#attributify-mode
+  attributify: true,
   plugins: [typography()],
+  purge: ['./src/**/*.html', './src/**/*.js'],
+  extract: {
+    include: ['src/**/*.{vue,jsx,tsx}', '*.html'],
+  },
   theme: {
     fontFamily: {
       sans: ['Open Sans', 'ui-sans-serif', 'system-ui'],
